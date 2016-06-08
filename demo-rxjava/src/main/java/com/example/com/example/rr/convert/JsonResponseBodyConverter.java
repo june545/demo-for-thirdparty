@@ -30,13 +30,19 @@ final class JsonResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 			//			while ((s = br.readLine()) != null){
 			//				sb.append(s);
 			//			}
+			String charset = value.contentType().charset().toString();
+			if(charset == null || charset.trim().length() < 1){
+				charset = "utf-8";
+			}
+			String result = new String(value.bytes(), charset);
+			System.out.println("responsebody " + result);
 
-			String result = new String(value.bytes(), "gb2312");
-//			System.out.println("responsebody " + result);
+			String s = result.substring(result.indexOf("id=\"result\""));
+			s = s.substring(s.indexOf("<code>") + 6);
+			s = s.substring(0, s.indexOf("</code>"));
+
 			RespInfo respInfo = new RespInfo();
-			int start = result.indexOf(">>") + 1;
-			int end = start + result.substring(start).indexOf("<");
-			respInfo.domain = result.substring(start, end);
+			respInfo.domain = s;
 			return (T) respInfo;
 
 		}

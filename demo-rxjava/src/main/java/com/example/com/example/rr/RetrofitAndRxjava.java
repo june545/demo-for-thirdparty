@@ -11,16 +11,15 @@ import retrofit2.Retrofit;
  * Created by June on 2016/6/8.
  */
 public class RetrofitAndRxjava {
-	static String url = "http://www.ip138.com";
+	static String url = "http://www.ip.cn";
 
 	static String domain = "www.baidu.com";
-	static String action = "2";
 
 	public static void main(String[] args) {
 
 		Retrofit retrofit = new Retrofit.Builder().baseUrl(url).addConverterFactory(new JsonConverterFactory()).build();
 		IApiService apiService = retrofit.create(IApiService.class);
-		Call<RespInfo> call = apiService.getData(domain, action);
+		Call<RespInfo> call = apiService.getData(domain);
 		call.enqueue(new Callback<RespInfo>() {
 			@Override
 			public void onResponse(Call<RespInfo> call, Response<RespInfo> response) {
@@ -28,7 +27,7 @@ public class RetrofitAndRxjava {
 				if (respInfo == null) {
 					System.out.println("respinfo is null");
 				} else {
-					System.out.println(domain + " >>> " + respInfo.domain);
+					System.out.println(domain + " ===> " + respInfo.domain);
 				}
 
 			}
