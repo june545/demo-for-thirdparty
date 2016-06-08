@@ -5,10 +5,10 @@ import okhttp3.RequestBody;
 import retrofit2.Converter;
 import java.io.IOException;
 
-final class JsonRequestBodyConverter<T> implements Converter<T, RequestBody> {
+final class MyRequestBodyConverter<T> implements Converter<T, RequestBody> {
     private static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=UTF-8");
 
-    JsonRequestBodyConverter() {
+    MyRequestBodyConverter() {
 
     }
 

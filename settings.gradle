@@ -1,1 +1,1 @@
-include ':demo-okhttp', ':demo-rxjava'
+include ':demo-okhttp', ':demo-rxjava', ':bdmap'

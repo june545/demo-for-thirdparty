@@ -5,7 +5,7 @@ import rx.Observable;
 import rx.Subscriber;
 import rx.functions.Func1;
 
-public class MyClass {
+public class TestRx {
 
 	public static final void main(String[] args) {
 		test2();

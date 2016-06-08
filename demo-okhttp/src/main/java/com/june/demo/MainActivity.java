@@ -1,14 +1,23 @@
 package com.june.demo;
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.webkit.WebChromeClient;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
+import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import java.io.IOException;
 
@@ -21,6 +30,10 @@ import okhttp3.ResponseBody;
 
 public class MainActivity extends AppCompatActivity {
 	private static final String TAG = "MainActivity-========";
+	TextView editText;
+	WebView webView;
+
+	private Handler handler = new Handler();
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -29,19 +42,30 @@ public class MainActivity extends AppCompatActivity {
 		Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 		setSupportActionBar(toolbar);
 
+		editText = (TextView) findViewById(R.id.edittext);
+		webView = (WebView) findViewById(R.id.webview);
+		webView.setWebChromeClient(new WebChromeClient(){
+			@Override
+			public void onProgressChanged(WebView view, int newProgress) {
+				super.onProgressChanged(view, newProgress);
+				Log.d(TAG,"===================" + newProgress);
+			}
+		});
+
 		FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 		fab.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
 				Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-						.setAction("okhttp", new View.OnClickListener() {
+						.setAction("action", new View.OnClickListener() {
 							@Override
 							public void onClick(View v) {
-								test1();
+								testOkhttp();
 							}
 						}).show();
 			}
 		});
+
 	}
 
 	@Override
@@ -61,20 +85,24 @@ public class MainActivity extends AppCompatActivity {
 		//noinspection SimplifiableIfStatement
 		if (id == R.id.action_settings) {
 			return true;
+		}else if(id == R.id.okhttp){
+			testOkhttp();
+		}else if(id == R.id.retrofit){
+			testRetrofit();
 		}
 
 		return super.onOptionsItemSelected(item);
 	}
 
 
-	private void test1(){
+	private void testOkhttp(){
 		OkHttpClient okHttpClient = new OkHttpClient();
 		Request request = new Request.Builder().url("https://github.com/june545").build();
 		Call call = okHttpClient.newCall(request);
 		call.enqueue(new Callback() {
 			@Override
 			public void onFailure(Call call, IOException e) {
-
+				e.printStackTrace();
 			}
 
 			@Override
@@ -82,12 +110,23 @@ public class MainActivity extends AppCompatActivity {
 				int code = response.code();
 				String msg = response.message();
 				ResponseBody body = response.body();
-				Log.w(TAG, " code:" + code + ", msg:" + msg + ", body:" + body.string());
+				final String s = body.string();
+//				Log.w(TAG, " code:" + code + ", msg:" + msg + ", body:" + s);
+
+				handler.post(new Runnable() {
+					@Override
+					public void run() {
+						Log.w(TAG, "body:" + s);
+						editText.setText(s);
+//						webView.loadDataWithBaseURL("about:blank", s	, "text/html", "UTF-8", null);
+					}
+				});
 			}
 		});
 	}
 
-	private void test2(){
-
+	private void testRetrofit(	){
+		Toast.makeText(getApplicationContext(), "this is under construction !", Toast.LENGTH_LONG).show();
 	}
+
 }
