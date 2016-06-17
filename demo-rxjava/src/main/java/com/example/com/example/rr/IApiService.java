@@ -6,6 +6,7 @@ import javax.xml.ws.RequestWrapper;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
+import retrofit2.http.Path;
 import retrofit2.http.Query;
 import retrofit2.http.QueryMap;
 
@@ -13,6 +14,7 @@ import retrofit2.http.QueryMap;
  * Created by June on 2016/6/8.
  */
 public interface IApiService {
+	@GET("index.php?ip=www.baidu.com")
 	Call<RespInfo> getData();
 
 	@GET("index.php")
@@ -20,4 +22,7 @@ public interface IApiService {
 
 	@GET("index.php")
 	Call<RespInfo> getData(@QueryMap Map<String, String> map);
+
+	@GET("{path}")
+	Call<RespInfo> getDataBySuffix(@Path("path") String path, @Query("ip") String ip);
 }
