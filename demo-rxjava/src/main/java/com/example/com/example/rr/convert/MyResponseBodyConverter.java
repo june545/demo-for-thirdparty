@@ -26,7 +26,7 @@ final class MyResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 				charset = "utf-8";
 			}
 			String result = new String(value.bytes(), charset);
-			System.out.println("responsebody " + result);
+//			System.out.println("responsebody " + result);
 
 			String s = result.substring(result.indexOf("id=\"result\""));
 			s = s.substring(s.indexOf("<code>") + 6);
