@@ -1,4 +1,4 @@
-package com.example;
+package com.june.eg.rx;
 
 
 import rx.Observable;

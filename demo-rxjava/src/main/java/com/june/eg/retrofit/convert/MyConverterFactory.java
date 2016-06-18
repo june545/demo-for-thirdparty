@@ -1,6 +1,6 @@
-package com.example.com.example.rr.convert;
+package com.june.eg.retrofit.convert;
 
-import com.example.com.example.rr.RespInfo;
+import com.june.eg.retrofit.RespInfo;
 
 import java.lang.annotation.Annotation;
 import java.lang.reflect.Type;

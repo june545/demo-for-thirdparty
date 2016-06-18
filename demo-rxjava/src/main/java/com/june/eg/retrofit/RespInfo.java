@@ -1,4 +1,4 @@
-package com.example.com.example.rr;
+package com.june.eg.retrofit;
 
 /**
  * Created by June on 2016/6/8.

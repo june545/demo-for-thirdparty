@@ -3,12 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/bdmap/bdmap.iml" filepath="$PROJECT_DIR$/bdmap/bdmap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/bdmap/bdmap.iml" filepath="$PROJECT_DIR$/bdmap/bdmap.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo-for-thirdparty.iml" filepath="$PROJECT_DIR$/demo-for-thirdparty.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-for-thirdparty.iml" filepath="$PROJECT_DIR$/demo-for-thirdparty.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-okhttp/demo-okhttp.iml" filepath="$PROJECT_DIR$/demo-okhttp/demo-okhttp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo-okhttp/demo-okhttp.iml" filepath="$PROJECT_DIR$/demo-okhttp/demo-okhttp.iml" />
-      <module fileurl="file://$PROJECT_DIR$/demo-rxjava/demo-rxjava.iml" filepath="$PROJECT_DIR$/demo-rxjava/demo-rxjava.iml" />
       <module fileurl="file://$PROJECT_DIR$/demo-rxjava/demo-rxjava.iml" filepath="$PROJECT_DIR$/demo-rxjava/demo-rxjava.iml" />
     </modules>
   </component>

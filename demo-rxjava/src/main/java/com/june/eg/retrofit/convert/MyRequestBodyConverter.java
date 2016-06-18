@@ -1,4 +1,4 @@
-package com.example.com.example.rr.convert;
+package com.june.eg.retrofit.convert;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;

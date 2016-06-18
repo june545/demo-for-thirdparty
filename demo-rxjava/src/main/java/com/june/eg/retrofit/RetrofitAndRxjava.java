@@ -1,11 +1,9 @@
-package com.example.com.example.rr;
+package com.june.eg.retrofit;
 
-import com.example.com.example.rr.convert.MyConverterFactory;
+import com.june.eg.retrofit.convert.MyConverterFactory;
 
-import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
-import java.util.TreeMap;
 
 import okhttp3.OkHttpClient;
 import okhttp3.logging.HttpLoggingInterceptor;

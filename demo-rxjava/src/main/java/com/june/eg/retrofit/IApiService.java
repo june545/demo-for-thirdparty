@@ -1,8 +1,6 @@
-package com.example.com.example.rr;
+package com.june.eg.retrofit;
 
 import java.util.Map;
-
-import javax.xml.ws.RequestWrapper;
 
 import retrofit2.Call;
 import retrofit2.http.GET;
