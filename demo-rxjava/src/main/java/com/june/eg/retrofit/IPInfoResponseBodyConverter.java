@@ -1,15 +1,13 @@
-package com.june.eg.retrofit.convert;
-
-import com.june.eg.retrofit.RespInfo;
+package com.june.eg.retrofit;
 
 import java.io.IOException;
 
 import okhttp3.ResponseBody;
 import retrofit2.Converter;
 
-final class MyResponseBodyConverter<T> implements Converter<ResponseBody, T> {
+final class IPInfoResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 
-	MyResponseBodyConverter() {
+	IPInfoResponseBodyConverter() {
 
 	}
 
@@ -29,7 +27,7 @@ final class MyResponseBodyConverter<T> implements Converter<ResponseBody, T> {
 			s = s.substring(s.indexOf("<code>") + 6);
 			s = s.substring(0, s.indexOf("</code>"));
 
-			RespInfo respInfo = new RespInfo();
+			IPInfo respInfo = new IPInfo();
 			respInfo.domain = s;
 			return (T) respInfo;
 

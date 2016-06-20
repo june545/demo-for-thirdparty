@@ -1,14 +1,15 @@
-package com.june.eg.retrofit.convert;
+package com.june.eg.retrofit;
+
+import java.io.IOException;
 
 import okhttp3.MediaType;
 import okhttp3.RequestBody;
 import retrofit2.Converter;
-import java.io.IOException;
 
-final class MyRequestBodyConverter<T> implements Converter<T, RequestBody> {
+final class IPInfoRequestBodyConverter<T> implements Converter<T, RequestBody> {
     private static final MediaType MEDIA_TYPE = MediaType.parse("application/json; charset=UTF-8");
 
-    MyRequestBodyConverter() {
+    IPInfoRequestBodyConverter() {
 
     }
 

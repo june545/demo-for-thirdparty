@@ -1,7 +1,5 @@
 package com.june.eg.retrofit;
 
-import com.june.eg.retrofit.convert.MyConverterFactory;
-
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -37,13 +35,13 @@ public class RetrofitAndRxjava {
 //	</div>
 //	<div id="result"><div class="well"><p>查询的 IP：<code>14.215.177.38</code>&nbsp;来自：广东省广州市 电信</p><p>GeoIP: Guangzhou, Guangdong, China</p><p>China Telecom Guangdong</p></div></div>
 	public void test1(){
-		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new MyConverterFactory()).build();
+		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new IPInfoConverterFactory()).build();
 		IApiService apiService = retrofit.create(IApiService.class);
-		Call<RespInfo> call = apiService.getData(domain);
-		call.enqueue(new Callback<RespInfo>() {
+		Call<IPInfo> call = apiService.getData(domain);
+		call.enqueue(new Callback<IPInfo>() {
 			@Override
-			public void onResponse(Call<RespInfo> call, Response<RespInfo> response) {
-				RespInfo respInfo = response.body();
+			public void onResponse(Call<IPInfo> call, Response<IPInfo> response) {
+				IPInfo respInfo = response.body();
 				if (respInfo == null) {
 					System.out.println("respinfo is null");
 				} else {
@@ -53,14 +51,14 @@ public class RetrofitAndRxjava {
 			}
 
 			@Override
-			public void onFailure(Call<RespInfo> call, Throwable t) {
+			public void onFailure(Call<IPInfo> call, Throwable t) {
 				t.printStackTrace();
 			}
 		});
 	}
 
 	private void test2() {
-		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new MyConverterFactory()).build();
+		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new IPInfoConverterFactory()).build();
 		IApiService apiService = retrofit.create(IApiService.class);
 
 		Map<String, String> params = new LinkedHashMap<>();
@@ -71,11 +69,11 @@ public class RetrofitAndRxjava {
 		params.put("e", "a");
 		params.put("b", "a");
 
-		Call<RespInfo> call = apiService.getData(params);
-		call.enqueue(new Callback<RespInfo>() {
+		Call<IPInfo> call = apiService.getData(params);
+		call.enqueue(new Callback<IPInfo>() {
 			@Override
-			public void onResponse(Call<RespInfo> call, Response<RespInfo> response) {
-				RespInfo respInfo = response.body();
+			public void onResponse(Call<IPInfo> call, Response<IPInfo> response) {
+				IPInfo respInfo = response.body();
 				if (respInfo == null) {
 					System.out.println("respinfo is null");
 				} else {
@@ -85,7 +83,7 @@ public class RetrofitAndRxjava {
 			}
 
 			@Override
-			public void onFailure(Call<RespInfo> call, Throwable t) {
+			public void onFailure(Call<IPInfo> call, Throwable t) {
 				t.printStackTrace();
 			}
 		});
@@ -93,13 +91,13 @@ public class RetrofitAndRxjava {
 
 	void test3(){
 		String url = "http://www.ip.cn";
-		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new MyConverterFactory()).build();
+		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new IPInfoConverterFactory()).build();
 		IApiService apiService = retrofit.create(IApiService.class);
-		Call<RespInfo> call = apiService.getData();
-		call.enqueue(new Callback<RespInfo>() {
+		Call<IPInfo> call = apiService.getData();
+		call.enqueue(new Callback<IPInfo>() {
 			@Override
-			public void onResponse(Call<RespInfo> call, Response<RespInfo> response) {
-				RespInfo respInfo = response.body();
+			public void onResponse(Call<IPInfo> call, Response<IPInfo> response) {
+				IPInfo respInfo = response.body();
 				if (respInfo == null) {
 					System.out.println("respinfo is null");
 				} else {
@@ -109,20 +107,20 @@ public class RetrofitAndRxjava {
 			}
 
 			@Override
-			public void onFailure(Call<RespInfo> call, Throwable t) {
+			public void onFailure(Call<IPInfo> call, Throwable t) {
 				t.printStackTrace();
 			}
 		});
 	}
 
 	void getBySuffixPath(){
-		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new MyConverterFactory()).build();
+		Retrofit retrofit = new Retrofit.Builder().client(okHttpClient).baseUrl(url).addConverterFactory(new IPInfoConverterFactory()).build();
 		IApiService apiService = retrofit.create(IApiService.class);
-		Call<RespInfo> call = apiService.getDataBySuffix("index.php", "www.baidu.com");
-		call.enqueue(new Callback<RespInfo>() {
+		Call<IPInfo> call = apiService.getDataBySuffix("index.php", "www.baidu.com");
+		call.enqueue(new Callback<IPInfo>() {
 			@Override
-			public void onResponse(Call<RespInfo> call, Response<RespInfo> response) {
-				RespInfo respInfo = response.body();
+			public void onResponse(Call<IPInfo> call, Response<IPInfo> response) {
+				IPInfo respInfo = response.body();
 				if (respInfo == null) {
 					System.out.println("respinfo is null");
 				} else {
@@ -132,7 +130,7 @@ public class RetrofitAndRxjava {
 			}
 
 			@Override
-			public void onFailure(Call<RespInfo> call, Throwable t) {
+			public void onFailure(Call<IPInfo> call, Throwable t) {
 				t.printStackTrace();
 			}
 		});

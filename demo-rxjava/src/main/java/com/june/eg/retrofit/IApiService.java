@@ -13,14 +13,14 @@ import retrofit2.http.QueryMap;
  */
 public interface IApiService {
 	@GET("index.php?ip=www.baidu.com")
-	Call<RespInfo> getData();
+	Call<IPInfo> getData();
 
 	@GET("index.php")
-	Call<RespInfo> getData(@Query("ip") String ip);
+	Call<IPInfo> getData(@Query("ip") String ip);
 
 	@GET("index.php")
-	Call<RespInfo> getData(@QueryMap Map<String, String> map);
+	Call<IPInfo> getData(@QueryMap Map<String, String> map);
 
 	@GET("{path}")
-	Call<RespInfo> getDataBySuffix(@Path("path") String path, @Query("ip") String ip);
+	Call<IPInfo> getDataBySuffix(@Path("path") String path, @Query("ip") String ip);
 }
