@@ -44,21 +44,21 @@ public class TestRx {
 		Observable observable = Observable.create(new Observable.OnSubscribe<String>() {
 			@Override
 			public void call(Subscriber<? super String> subscriber) {
-				subscriber.onNext("publish a news ");
+				subscriber.onNext("下雨了");
 				subscriber.onCompleted();
 			}
 		}).map(new Func1<String, String>() {
 			@Override
 			public String call(String o) {
 
-				return " 2016-6-8 " + o;
+				return "打雷了，" + o;
 			}
 		});
 
 		Subscriber<String> subscriber = new Subscriber<String>() {
 			@Override
 			public void onCompleted() {
-				System.out.println("I read it.");
+				System.out.println("回家收衣服了!");
 			}
 
 			@Override
@@ -68,7 +68,7 @@ public class TestRx {
 
 			@Override
 			public void onNext(String s) {
-				System.out.println("I accept: " + s);
+				System.out.println(s);
 			}
 		};
 
