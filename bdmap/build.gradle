@@ -26,4 +26,5 @@ dependencies {
     compile 'com.baidu.mapapi:base:3.7.1'
     compile 'com.baidu.mapapi:map:3.7.1'
     compile 'com.firebase:firebase-client-android:2.3.1'
+    compile 'com.baidu.mapapi:location:6.13'
 }

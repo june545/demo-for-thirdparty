@@ -12,6 +12,8 @@ import retrofit2.http.QueryMap;
  * Created by June on 2016/6/8.
  */
 public interface IApiService {
+	// GET URL 组织形式
+
 	@GET("index.php?ip=www.baidu.com")
 	Call<IPInfo> getData();
 
@@ -23,4 +25,6 @@ public interface IApiService {
 
 	@GET("{path}")
 	Call<IPInfo> getDataBySuffix(@Path("path") String path, @Query("ip") String ip);
+
+
 }
