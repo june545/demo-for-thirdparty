@@ -1,4 +1,6 @@
 apply plugin: 'com.android.application'
+//compute methods in apk , must java8
+apply plugin: 'com.getkeepsafe.dexcount'
 
 android {
     compileSdkVersion 23
